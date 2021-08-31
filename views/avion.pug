@@ -1,0 +1,14 @@
+doctype html
+html
+	head
+		title #{modelo}
+		meta(charset="utf-8")
+		link(rel="stylesheet" type="text/css" href="avion.css")
+	body
+		main
+			h1 #{modelo}
+			figure 
+				img(src=data.imagen width=250)
+				figcaption #{data.texto}
+			a(href="/") Regresar
+			
