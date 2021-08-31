@@ -3,6 +3,9 @@ var app = express();
 
 const pug = require("pug");
 
+//Puerto para despliegue
+const puerto = process.env.PORT || 3000;
+
 app.use(express.static(__dirname + "/public"));
 
 var aviones_array = [
@@ -14,7 +17,7 @@ var aviones_array = [
 
 app.get("/", (req,res)=>{
 	//res.send("index.html");
-	res.render("index rutas dinamicas.pug",{
+	res.render("index.pug",{
 		titulo: "Aviones del mundo",
 		texto: "Selecciona un avión",
 		imagen: "aviones.jpg",
@@ -49,6 +52,6 @@ app.use((req,res) => {
 	res.render("404.pug", {texto:error});
 });
 
-app.listen(3000,()=>{
-	console.log("Servidor encendido");
+app.listen(puerto,()=>{
+	console.log("Servidor encendido en puerto ", puerto);
 });
